@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP KS0835F
+D RING Subscriber Line Interface Circuit
+K SLIC
+F http://file2.dzsc.com/product/17/12/27/1130655_113518007.pdf
+$ENDCMP
+#
+#End Doc Library

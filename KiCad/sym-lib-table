@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name KS0835F)(type Legacy)(uri ${KIPRJMOD}/KS0835F.lib)(options "")(descr ""))
+  (lib (name GR_Telephone_CO_Node-rescue)(type Legacy)(uri ${KIPRJMOD}/GR_Telephone_CO_Node-rescue.lib)(options "")(descr ""))
+  (lib (name esp32_devkit_v1_doit)(type Legacy)(uri ${KIPRJMOD}/esp32_devkit_v1_doit.lib)(options "")(descr ""))
+  (lib (name GR_Subscriber_Line_Interface_Module-rescue)(type Legacy)(uri ${KIPRJMOD}/GR_Subscriber_Line_Interface_Module-rescue.lib)(options "")(descr ""))
+)

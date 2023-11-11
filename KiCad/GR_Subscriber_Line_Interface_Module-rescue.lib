@@ -1,0 +1,46 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# MT8870DSR1-MT8870-GR_Telephone_CO_Node-rescue
+#
+DEF MT8870DSR1-MT8870-GR_Telephone_CO_Node-rescue U 0 40 Y Y 1 L N
+F0 "U" 0 200 50 H V L CNN
+F1 "MT8870DSR1-MT8870-GR_Telephone_CO_Node-rescue" 0 300 50 H V L CNN
+F2 "Microsemi-MT8870DSR1-0-0-*" 0 400 50 H I L CNN
+F3 "https://www.microsemi.com/document-portal/doc_download/127041-mt8870d-datasheet-oct2006" 0 500 50 H I L CNN
+F4 "IC" 0 600 50 H I L CNN "category"
+F5 "Telecom IC DTMF Receiver 18-SOIC" 0 700 50 H I L CNN "digikey description"
+F6 "MT8870DSR1CT-ND" 0 800 50 H I L CNN "digikey part number"
+F7 "SOIC127P1032X250-18" 0 900 50 H I L CNN "ipc land pattern name"
+F8 "yes" 0 1000 50 H I L CNN "lead free"
+F9 "183f4b2c592ce6f0" 0 1100 50 H I L CNN "library id"
+F10 "Microsemi" 0 1200 50 H I L CNN "manufacturer"
+F11 "494-MT8870DSR1" 0 1300 50 H I L CNN "mouser part number"
+F12 "SOIC18" 0 1400 50 H I L CNN "package"
+F13 "yes" 0 1500 50 H I L CNN "rohs"
+F14 "+85°C" 0 1600 50 H I L CNN "temperature range high"
+F15 "-40°C" 0 1700 50 H I L CNN "temperature range low"
+DRAW
+S 100 100 900 -1500 1 1 0 f
+X IN+ 1 0 -600 100 R 40 40 1 1 I
+X TOE 10 1000 -1100 100 L 40 40 1 1 I
+X Q1 11 1000 0 100 L 40 40 1 1 O
+X Q2 12 1000 -100 100 L 40 40 1 1 O
+X Q3 13 1000 -200 100 L 40 40 1 1 O
+X Q4 14 1000 -300 100 L 40 40 1 1 O
+X StD 15 1000 -900 100 L 40 40 1 1 O
+X ESt 16 1000 -700 100 L 40 40 1 1 O
+X St/GT 17 1000 -500 100 L 40 40 1 1 O
+X VDD 18 0 0 100 R 40 40 1 1 W
+X IN- 2 0 -700 100 R 40 40 1 1 I
+X GS 3 0 -900 100 R 40 40 1 1 P
+X VRef 4 0 -200 100 R 40 40 1 1 O
+X INH 5 0 -1100 100 R 40 40 1 1 I
+X PWDN 6 0 -400 100 R 40 40 1 1 I
+X OSC1 7 0 -1300 100 R 40 40 1 1 I
+X OSC2 8 0 -1400 100 R 40 40 1 1 O
+X VSS 9 1000 -1400 100 L 40 40 1 1 W
+ENDDRAW
+ENDDEF
+#
+#End Library

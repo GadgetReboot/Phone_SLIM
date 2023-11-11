@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ESP32_DevKit_V1_DOIT
+D 32-bit microcontroller module with WiFi and Bluetooth
+K ESP32-WROOM-32 WiFi and Bluetooth microcontroller
+F https://aliexpress.com/item/32864722159.html
+$ENDCMP
+#
+#End Doc Library
