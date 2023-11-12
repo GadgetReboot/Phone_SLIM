@@ -13,4 +13,5 @@ USB power can be used for programming and some testing, but the board may not be
 Set the power jumper J8 for USB or EXT as needed.<BR><BR>
 
 Power up the Server board first and wait for the blue LED to light up on the ESP module's built in LED to indicate it has joined the WiFi router.<br>
-Then power up the Sender board so it can try to auto-pair with the Server board over ESP-NOW.  In the future, software may be improved so the Sender board will auto-pair whenever the Server board is ready.
+Then power up the Sender board so it can try to auto-pair with the Server board over ESP-NOW.  In the future, software may be improved so the Sender board will auto-pair whenever the Server board is ready.<BR><BR>
+Check out this similar project being worked on: https://github.com/ktownsend-personal/RetroPhone
