@@ -3,10 +3,17 @@
 #define project_globals_h
 
 #include "Arduino.h"
+#include <RGBLed.h>               // RGB LED library for 4 pin LED
 
 // region definitions for different call progress tones
 #define northAmerica 0
 #define uk    1
+
+extern const byte rgbRPin;              // rgb red pin
+extern const byte rgbGPin;              // rgb green pin 
+extern const byte rgbBPin;              // rgb blue pin
+
+extern RGBLed led;                      // rgb Led interface
 
 // msg data sent between nodes to make requests or provide responses
 // also used locally to store received msg data
@@ -39,8 +46,16 @@ extern const byte slic_fwdRev;          // slic forward/reverse pin
 extern const byte slic_ringMode;        // slic ring mode pin
 extern const byte slic_SHK;             // slic switch hook pin
 extern bool stateOffhook;               // assume phone is on hook to start
+extern bool pulseDialingNow;            // pulse dialing has not started yet
 extern bool shkTimerRunning;            // track if the hook switch debounce timer is running
+extern bool shkOnHookTimerRunning;      // track if the hook switch on-hook timer is running
 extern unsigned long shkDebounceTimer;  // hook switch debounce timer
+extern byte shkDebounceInterval;        // 10mS debounce for hook switch
+extern unsigned long shkOnHookTimer;    // hook switch going on-hook timer
+extern byte shkOnHookInterval;          // 200mS debounce for hook switch going on-hook
+
+
+
 
 
 extern const byte Q1;                   // mt8870 dtmf data bits to decode
@@ -50,8 +65,6 @@ extern const byte Q4;
 extern const byte StD;                  // mt8870 delayed steering = high when valid Q1..Q4 data present
 
 extern const byte senderServerPin;      // gpio low = Server  high = Sender  mode for wifi purposes
-
-extern const byte rgbLed;               // led indicating phone is ringing
 extern const byte relayPin;             // relay that connects remote phone line to local phone line
 
 
@@ -63,6 +76,6 @@ extern byte slic_ring_cadence_step;          // which of the cadence intervals i
 extern int ringCadence [];                   // SLIC phone ring cadence for ring/silence/ring/silence (durations in mS)
 extern const byte ringFreq;                  // generate this freq (Hz) ring voltage (possible issues below 40Hz)
 extern const int ringPeriod;                 // period of ring frequency in mS
-extern byte shkDebounceInterval;             // 10mS debounce for hook switch
+
 
 #endif

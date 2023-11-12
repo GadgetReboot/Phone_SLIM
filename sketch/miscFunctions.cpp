@@ -4,8 +4,10 @@
 
 #include "miscFunctions.h"
 
-// initialize the system status flags to default states
+// initialize the system and set status flags to default states
 void initSystem() {
+  led.setColor(RGBLed::YELLOW);
+  
   if (digitalRead(slic_SHK))                  // check if phone is on or off hook
     bitSet(sysFlags, sysFlag_offHook);
   else
@@ -42,7 +44,7 @@ void initSlic() {
   // configure SLIC module pins
   digitalWrite(slic_fwdRev, LOW);
   digitalWrite(slic_ringMode, LOW);
-  digitalWrite(slic_audioMute, LOW);
+  digitalWrite(slic_audioMute, HIGH);   // disable audio path out of SLIC
 
   pinMode(slic_fwdRev, OUTPUT);
   pinMode(slic_ringMode, OUTPUT);
@@ -84,7 +86,9 @@ void checkIRQ() {
 
     if (stateOffhook && !currSHK && !shkTimerRunning) {  // start a debounce timer when SHK goes low
       shkTimerRunning = true;
-      shkDebounceTimer = millis();
+      shkOnHookTimerRunning = true;
+      shkDebounceTimer = millis();                       // overall SHK debounce timer
+      shkOnHookTimer = millis();                         // SHK going on-hook vs pulse dialing timer
     }
 
     if (!stateOffhook && currSHK && !shkTimerRunning) {  // start a debounce timer when SHK goes high
@@ -184,7 +188,7 @@ void slicRingStop() {
   digitalWrite(slic_fwdRev, LOW);             // stop generating ring signal on SLIC
   digitalWrite(slic_ringMode, LOW);
   bitClear(sysFlags, sysFlag_ringing);        // phone is not ringing, clear system status flag
-  digitalWrite(rgbLed, HIGH);                 // turn off ring indicator LED
+  led.off();                                  // turn off ring indicator LED
 
   // *** Double check slic documentation regarding the need for a delay for voltages to settle***
 }
@@ -232,12 +236,12 @@ void slicRingGenerate() {
       slic_ring_freq_timer = millis();                           // reset ring freq timer for another interval
       fwdRevPinState = !fwdRevPinState;                          // toggle SLIC pin to generate ring voltage at freq
       digitalWrite(slic_fwdRev, fwdRevPinState);
-      digitalWrite(rgbLed, fwdRevPinState);                      // toggle ring indicator LED
+      if (fwdRevPinState) led.setColor(RGBLed::CYAN); else led.off();  // flash LED to indicate ringing
     }
   }
   else {
     digitalWrite(slic_fwdRev, LOW);                              // if not actively ringing, don't toggle pin
-    digitalWrite(rgbLed, HIGH);                                  // turn off ring indicator LED
+    led.off();                                                   // turn off ring indicator LED
   }
 }
 

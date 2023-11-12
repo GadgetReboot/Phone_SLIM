@@ -11,8 +11,15 @@ byte myRegion = northAmerica;
 
 String remotePhoneNumber = "8675309";  // valid phone number for remote phone
 String localPhoneNumber = "3927704";   // valid phone number for local phone
+//String remotePhoneNumber = "3927704";  // valid phone number for remote phone
+//String localPhoneNumber = "8675309";   // valid phone number for local phone
 String dialedNumber = "";              // store dialed digits in a string for processing
 String remotePhoneNum = "";            // phone number of incoming caller
+
+const byte rgbRPin = 15;                // rgb red pin
+const byte rgbGPin = 16;                // rgb green pin 
+const byte rgbBPin = 12;                // rgb blue pin
+RGBLed led(rgbRPin, rgbGPin, rgbBPin, RGBLed::COMMON_ANODE);
 
 // system status flag register to track the state of various modes and operations
 uint16_t sysFlags = 0x00;
@@ -33,8 +40,13 @@ RequestType remoteRequestType = NONE;   // what does originator node want from t
 
 // SHK control
 bool stateOffhook = false;              // assume phone is on hook to start
+bool pulseDialingNow = false;           // pulse dialing has not started yet
 bool shkTimerRunning = false;           // track if the hook switch debounce timer is running
+bool shkOnHookTimerRunning = false;     // track if the hook switch on-hook timer is running
 unsigned long shkDebounceTimer;         // hook switch debounce timer
+byte shkDebounceInterval = 10;          // 10mS debounce for hook switch
+unsigned long shkOnHookTimer;           // hook switch going on-hook timer
+byte shkOnHookInterval = 200;           // 200mS debounce for hook switch going on-hook
 
 // gpio pins
 const byte slic_audioMute = 17;         // slic audio output mute pin
@@ -49,7 +61,6 @@ const byte Q4 = 36;
 const byte StD = 13;                    // mt8870 delayed steering = high when valid Q1..Q4 data present
 
 const byte senderServerPin = 39;        // gpio low = Server  high = Sender  mode for wifi purposes
-const byte rgbLed = 16;                 // led status indicator
 const byte relayPin = 4;                // relay that connects tip/ring from SLIC to audio trunk line
 
 // misc variables
@@ -61,4 +72,3 @@ byte slic_ring_cadence_step = 0;                     // which of the cadence int
 int ringCadence [] = {0, 0, 0, 0};                   // SLIC phone ring cadence for ring/silence/ring/silence (durations in mS)
 const byte ringFreq = 45;                            // generate this freq (Hz) ring voltage (possible issues below 40Hz)
 const int ringPeriod = (1 / (float)ringFreq) * 1000; // period of ring frequency in mS
-byte shkDebounceInterval = 10;                       // 10mS debounce for hook switch
