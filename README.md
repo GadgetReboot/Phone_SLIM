@@ -3,8 +3,8 @@ POTS Telephone Subscriber Line Interface Module
 <br><br>![PCB](Assembled_PCB.jpg)<BR><BR>
 # Usage Notes
 > [!NOTE]
->This project is intended for hobby/personal use to explore how the plain old telephone service works.<br>
->The PCB isn't designed to integrate with a live phone line. It is intended to create an offline system for local use.<br><br>
+> * This project is intended for hobby/personal use to explore how the plain old telephone service works.<br>
+> * The PCB isn't designed to integrate with a live phone line. It is intended to create an offline system for local use.<br><br>
 
 * It is recommended to add a TO-220 heat sink to the 3.3v regulator in case it gets too hot. I used [Wakefield-Vette 274-3AB](https://www.digikey.com/en/products/detail/wakefield-vette/274-3AB/2351871)  along with thermal paste and a nut/screw I had around.  <br>
 * One pcb is needed for each phone/modem/etc.  One board has to have a jumper installed on J5 to act as a Server node and the other board(s) must have the jumper vacant to act as Sender nodes.<br>
