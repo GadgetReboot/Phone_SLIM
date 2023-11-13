@@ -16,6 +16,9 @@ POTS Telephone Subscriber Line Interface Module
 * USB power can be used for programming and some testing, but the board may not be as stable as when powered externally.<BR>
 * Set the power jumper J8 for USB or EXT as needed.<BR><BR>
 
+# Parts
+* The transformer is a 600:600 ohm audio isolation type.  The part used in the prototypes is from Ali Express, such as the red 4 pin ones here with description words such as EL14 included: https://s.click.aliexpress.com/e/_Dmlkp3z <BR><BR>
+
 # Powering Up Two Nodes
 * Power up the Server board first and wait for the blue LED to light up on the ESP module's built in LED to indicate it has joined the WiFi router.<br>
 * Then power up the Sender board so it can try to auto-pair with the Server board over ESP-NOW.  In the future, software may be improved so the Sender board will auto-pair whenever the Server board is ready.<BR><BR>
